@@ -16,7 +16,12 @@ public class Parent {
     }
 
     Parent() {
+        this("Parent constructor with parameter");
         System.out.println("Parent constructor");
+    }
+
+    Parent(String message) {
+        System.out.println(message);
     }
 
     static {

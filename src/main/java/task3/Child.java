@@ -16,10 +16,16 @@ public class Child extends Parent {
     }
 
     Child() {
+        this("Child constructor with parameter");
         System.out.println("Child constructor");
     }
 
-    private static String init(String message) {
+    Child(String message) {
+        System.out.println(message);
+    }
+
+
+    public static String init(String message) {
         System.out.println(message);
         return message;
     }
