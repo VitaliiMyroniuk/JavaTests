@@ -6,8 +6,23 @@ package task6;
 public class User {
     private int id;
     private String name;
-    private int age;
     private boolean isAdmin;
+
+    public User(int id, String name, boolean isAdmin) {
+        this.id = id;
+        this.name = name;
+        this.isAdmin = isAdmin;
+    }
+
+    // Copy constructor
+    public User(User user) {
+        new User(user.getId(), user.getName(), user.isAdmin);
+    }
+
+    // Factory method
+    public static User newInstance(User user) {
+        return new User(user.getId(), user.getName(), user.isAdmin);
+    }
 
     public int getId() {
         return id;
@@ -25,19 +40,20 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public boolean isAdmin() {
         return isAdmin;
     }
 
     public void setAdmin(boolean admin) {
         isAdmin = admin;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
     }
 }

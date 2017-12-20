@@ -14,8 +14,8 @@ public final class ImmutableClass {
 
     public ImmutableClass(int id, List<User> users, Date date) {
         this.id = id;
-        this.users = users;  // TODO not finished yet
-        this.date = date;
+        this.users =  cloneUsers(users);
+        this.date = (Date) date.clone();
     }
 
     public int getId() {
@@ -23,19 +23,28 @@ public final class ImmutableClass {
     }
 
     public List<User> getUsers() {
-        List<User> copyOfUsers = new ArrayList<>();
-        for (User user : users) {
-            User userCopy = new User();
-            userCopy.setId(user.getId());
-            userCopy.setName(user.getName());
-            userCopy.setAge(user.getAge());
-            userCopy.setAdmin(user.isAdmin());
-            copyOfUsers.add(userCopy);
-        }
-        return copyOfUsers;
+        return cloneUsers(users);
     }
 
     public Date getDate() {
         return (Date) date.clone();
+    }
+
+    @Override
+    public String toString() {
+        return "ImmutableClass{" +
+                "id=" + id +
+                ", users=" + users +
+                ", date=" + date +
+                '}';
+    }
+
+    private List<User> cloneUsers(List<User> users) {
+        List<User> copyOfUsers = new ArrayList<>();
+        for (User user : users) {
+            User clone = new User(user);
+            copyOfUsers.add(clone);
+        }
+        return copyOfUsers;
     }
 }
