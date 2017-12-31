@@ -1,7 +1,5 @@
 package task7;
 
-import java.util.Objects;
-
 /**
  * @author Vitalii_Myroniuk
  */
@@ -20,7 +18,6 @@ public class User {
         if (age != user.age) return false;
         if (Double.compare(user.balance, balance) != 0) return false;
         return name != null ? name.equals(user.name) : user.name == null;
-
     }
 
     @Override
