@@ -6,7 +6,6 @@ import java.util.*;
  * @author Vitalii_Myroniuk
  *
  * Як переозначити equals та hashCode?
- *
  */
 public class Main {
     private ArrayList<User> users;
